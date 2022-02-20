@@ -1,0 +1,21 @@
+---
+   - hosts: all
+     ignore_errors: yes
+     become: yes
+     tasks:
+        - name: Create user
+          user:
+            name: Clovis
+            comment: Clovis akame     
+        - name: Create directory
+          file:
+             path: /tmp/ansible-class
+             owner: Clovis
+             state: directory
+             mode: "0777"
+        - name: Create directory
+          file:
+             path: /tmp/devops-ans
+             owner: Clovis
+             state: touch
+             mode: "0600"
